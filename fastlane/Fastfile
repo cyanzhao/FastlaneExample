@@ -1,0 +1,118 @@
+# Customise this file, documentation can be found here:
+# https://github.com/fastlane/fastlane/tree/master/fastlane/docs
+# All available actions: https://docs.fastlane.tools/actions
+# can also be listed using the `fastlane actions` command
+
+# Change the syntax highlighting to Ruby
+# All lines starting with a # are ignored when running `fastlane`
+
+# If you want to automatically update fastlane if a new version is available:
+# update_fastlane
+
+# This is the minimum version number required.
+# Update this, if you use features of a newer version
+fastlane_version "2.38.1"
+
+default_platform :ios
+
+platform :ios do
+  before_all do
+    # ENV["SLACK_URL"] = "https://hooks.slack.com/services/..."
+    
+    
+  end
+  
+  #####################################################################
+
+  desc "iTC创建新的app"
+  lane :creatApplication do
+    	produce(
+            username: 'yxl@hcycom.com',
+            app_identifier: 'com.Fastlane-example',
+            app_name: 'Fastlane-example',
+          	app_version: '1.0',
+            sku: 'com.Fastlane-example',
+		      	language: 'zh-Hans',
+            platform: 'ios'
+            #..... more
+    		)	
+  end
+
+  lane :upload_itc do
+		deliver(
+      ipa: 'build/fastlane_sources/regular/appstore/-appstore-' + get_version_number_from_plist(target: 'Fastlane-example') + '-' + get_build_number_from_plist(target: 'Fastlane-example') + '.ipa' 
+    )
+	end
+
+  desc "一键上传 app store"
+	lane :upload_itc_doall do
+    build_appstore
+		upload_itc
+	end
+
+  desc "build app and sign it,包含项目的一些配置" 
+  lane :build_appstore do
+    match(app_identifier: "com.Fastlane-example", type: "appstore",force: true)
+    update_provisioning_profile_specifier(
+          xcodeproj: './Fastlane-example.xcodeproj',
+          target: 'Fastlane-example',
+          configuration: 'Release',
+          new_specifier: 'match AppStore com.Fastlane-example',
+      )
+    increment_build_number_in_plist(target: 'Fastlane-example')
+  	gym(
+        scheme: 'Fastlane-example',
+        configuration: "Release",
+        output_directory: 'build/fastlane_sources/regular/appstore/',
+        output_name: '-appstore' + '-' + get_version_number_from_plist(target: 'Fastlane-example') + '-' + get_build_number_from_plist(target: 'Fastlane-example') + '.ipa',
+        include_bitcode: true,
+        export_method: "app-store",
+    )
+  end
+
+  desc 'build app  (development)'
+  lane :build do
+    match(app_identifier: "com.Fastlane-example", type: "development",force: true)
+    update_provisioning_profile_specifier(
+          xcodeproj: './Fastlane-example.xcodeproj',
+          target: 'Fastlane-example',
+          configuration: 'Debug',
+          new_specifier: 'match Development com.Fastlane-example',
+      )
+    increment_build_number_in_plist(target: 'Fastlane-example')
+  	gym(
+        scheme: 'Fastlane-example',
+        configuration: "Debug",
+        output_directory: 'build/fastlane_sources/regular/debug',
+        output_name: '-debug' + '-' + get_version_number_from_plist(target: 'Fastlane-example') + '-' + get_build_number_from_plist(target: 'Fastlane-example') + '.ipa',
+        include_bitcode: true,
+        export_method: "development",
+    )
+	end
+  #####################################################################
+
+
+  # You can define as many lanes as you want
+
+  after_all do |lane|
+    # This block is called, only if the executed lane was successful
+
+    # slack(
+    #   message: "Successfully deployed new App Update."
+    # )
+  end
+
+  error do |lane, exception|
+    # slack(
+    #   message: exception.message,
+    #   success: false
+    # )
+  end
+end
+
+
+# More information about multiple platforms in fastlane: https://github.com/fastlane/fastlane/blob/master/fastlane/docs/Platforms.md
+# All available actions: https://docs.fastlane.tools/actions
+
+# fastlane reports which actions are used. No personal data is recorded. 
+# Learn more at https://github.com/fastlane/fastlane#metrics

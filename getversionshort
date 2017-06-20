@@ -1,0 +1,3 @@
+#!/bin/bash
+
+grep CFBundleShortVersionString gezilicai/Info.plist -A 1 | tr -d " \t\n\r" | sed s/\<key\>// | sed s/\<\\/key\>// | sed s/\<string\>// | sed s/\<\\/string\>// | sed s/CFBundleShortVersionString//

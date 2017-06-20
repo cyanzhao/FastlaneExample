@@ -1,0 +1,47 @@
+username "***@fastlane.com"
+price_tier "0"
+app_identifier "com.Fastlane-example"
+force "FALSE"
+description({
+'zh-Hans' => "一个测试fastlane的项目"
+})
+support_url({
+'zh-Hans' => "***"
+})
+name({
+'zh-Hans' => "Fastlane-example"
+})
+keywords({
+'zh-Hans' => "***"
+})
+privacy_url({
+'zh-Hans' => ""
+})
+release_notes({
+'zh-Hans' => "***"
+})
+marketing_url({
+'zh-Hans' => ""
+})
+copyright "***"
+app_icon "./fastlane/configSources/app_icon.png"
+metadata_path "./fastlane/metadata"
+submission_information({
+export_compliance_encryption_updated: "FALSE",
+export_compliance_uses_encryption: "FALSE",
+content_rights_contains_third_party_content: "FALSE",
+add_id_info_uses_idfa: "FALSE",
+})
+automatic_release "FALSE"
+submit_for_review "TRUE"
+screenshots_path "./fastlane/configSources/screenshots"
+app_review_information({
+phone_number: "***",
+demo_user: "***",
+first_name: "***",
+last_name: "***",
+notes: "",
+demo_password: "***",
+email_address: "***",
+})
+app_version "1.0"
