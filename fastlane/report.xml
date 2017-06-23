@@ -5,42 +5,42 @@
     
     
       
-      <testcase classname="fastlane.lanes" name="0: Verifying required fastlane version" time="0.001468">
+      <testcase classname="fastlane.lanes" name="0: Verifying required fastlane version" time="0.001776">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="1: default_platform" time="0.001418">
+      <testcase classname="fastlane.lanes" name="1: default_platform" time="0.001665">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="2: match" time="225.001024">
+      <testcase classname="fastlane.lanes" name="2: match" time="49.311588">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="3: update_provisioning_profile_specifier" time="0.139696">
+      <testcase classname="fastlane.lanes" name="3: update_provisioning_profile_specifier" time="0.118549">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="4: increment_build_number_in_plist" time="8.911584">
+      <testcase classname="fastlane.lanes" name="4: increment_build_number_in_plist" time="4.192465">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="5: get_version_number_from_plist" time="1.475115">
+      <testcase classname="fastlane.lanes" name="5: get_version_number_from_plist" time="1.386837">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="6: get_build_number_from_plist" time="1.381029">
+      <testcase classname="fastlane.lanes" name="6: get_build_number_from_plist" time="1.395866">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="7: gym" time="15.212676">
+      <testcase classname="fastlane.lanes" name="7: gym" time="14.098414">
         
       </testcase>
     

@@ -1,38 +1,53 @@
-username "***@fastlane.com"
-price_tier "0"
-app_identifier "com.Fastlane-example"
+Encoding.default_external = Encoding::UTF_8
+Encoding.default_internal = Encoding::UTF_8
+
+username "***"
+app_identifier "***"
 force "FALSE"
+subtitle({
+'en-GB' => "***",
+'zh-Hans' => "***",
+})
 description({
-'zh-Hans' => "一个测试fastlane的项目"
+'en-GB' => "***",
+'zh-Hans' => "***",
 })
 support_url({
-'zh-Hans' => "***"
+'en-GB' => "***",
+'zh-Hans' => "***",
 })
 name({
-'zh-Hans' => "Fastlane-example"
+'en-GB' => "***",
+'zh-Hans' => "***",
 })
 keywords({
-'zh-Hans' => "***"
+'en-GB' => "***",
+'zh-Hans' => "***",
 })
 privacy_url({
-'zh-Hans' => ""
+'en-GB' => "",
+'zh-Hans' => "",
 })
 release_notes({
-'zh-Hans' => "***"
+'en-GB' => "***",
+'zh-Hans' => "***",
 })
 marketing_url({
-'zh-Hans' => ""
+'en-GB' => "",
+'zh-Hans' => "",
 })
 copyright "***"
 app_icon "./fastlane/configSources/app_icon.png"
 metadata_path "./fastlane/metadata"
+price_tier "0"
+automatic_release "FALSE"
 submission_information({
 export_compliance_encryption_updated: "FALSE",
 export_compliance_uses_encryption: "FALSE",
 content_rights_contains_third_party_content: "FALSE",
 add_id_info_uses_idfa: "FALSE",
+submitted_for_review: "FALSE",
 })
-automatic_release "FALSE"
 submit_for_review "TRUE"
 screenshots_path "./fastlane/configSources/screenshots"
 app_review_information({
@@ -44,4 +59,4 @@ notes: "",
 demo_password: "***",
 email_address: "***",
 })
-app_version "1.0"
+app_version "3.0"

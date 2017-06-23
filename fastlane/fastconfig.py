@@ -65,7 +65,7 @@ def organizeBaseDic(baseDic,dotEnabled):
                     deliverString += lanKey + '({' + '\n'
                     for lanInfoKey in lanDic.keys():
                         lanInfoValue = lanDic[lanInfoKey]
-                        deliverString += '\'' +lanInfoKey + '\'' + ' => ' + '\"' + lanInfoValue + '\"' + '\n'
+                        deliverString += '\'' +lanInfoKey + '\'' + ' => ' + '\"' + lanInfoValue + '\"' + ',\n'
                     
                     deliverString += '})' + '\n'
             else:
@@ -86,10 +86,7 @@ with open('./fastconfig.json', 'r') as f:
     # data = json.load(f,object_hook=JSONObject)
     data = json.load(f)
     configDic = data[0]
-    deliverString = organizeBaseDic(configDic,False)
-
-  
-    
+    deliverString = 'Encoding.default_external = Encoding::UTF_8\nEncoding.default_internal = Encoding::UTF_8\n\n' + organizeBaseDic(configDic,False)
 
 #write to file 
 with open('Deliverfile','wt') as f:
